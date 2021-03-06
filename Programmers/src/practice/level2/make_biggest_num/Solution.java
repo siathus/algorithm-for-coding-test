@@ -3,18 +3,32 @@ package practice.level2.make_biggest_num;
 // 탐욕법 > 큰 수 만들기
 public class Solution {
     public String solution(String number, int k) {
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
+        int count = number.length() - k;
+        int left = 0;
+        int right = number.length() - count;
+        int max;
 
-        for (int i = 0, idx = -1; i < number.length() - k; i++) {
-            char max = 0;
-            for (int j = idx + 1; j <= i + k; j++) {
-                if (max < number.charAt(j)) {
-                    idx = j;
-                    max = number.charAt(j);
+        while (count > 0) {
+            max = -1;
+            System.out.printf("left : %d\tright : %d\n", left, right);
+            for (int i = left; i <= right; i++) {
+                int currentNumber = number.charAt(i) - '0';
+                if (currentNumber == 9) {
+                    left = i;
+                    max = currentNumber;
+                    break;
+                }
+                if (max < currentNumber) {
+                    left = i;
+                    max = currentNumber;
                 }
             }
-            answer = answer + max;
+            answer.append(max);
+            left++;
+            count--;
+            right = number.length() - count;
         }
-        return answer;
+        return answer.toString();
     }
 }
