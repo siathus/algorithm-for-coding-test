@@ -2,7 +2,7 @@ package quadtree_1992;
 
 import java.util.Scanner;
 
-// 쿼드트리
+// 쿼드트리 (1992)
 public class Main {
 
     private static int[][] display;

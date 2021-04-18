@@ -2,7 +2,7 @@ package colored_paper_2630;
 
 import java.util.Scanner;
 
-// 색종이 만들기
+// 색종이 만들기 (2630)
 public class Main {
 
     private static int white;
