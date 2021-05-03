@@ -13,15 +13,17 @@ class Solution {
 
         int totalTime = 0;
         for (int i = 0; i < courses.length; i++) {
-            //
+            // 현재 탐색중인 수업의 기간이 데드라인을 넘기지 않으면 큐에 바로 추가
             if (totalTime + courses[i][0] <= courses[i][1]) {
                 pq.offer(courses[i][0]);
                 totalTime += courses[i][0];
+            // 그렇지 않다면 기간이 가장 긴 수업(큐의 맨 앞)과 현재 수업을 스왑
             } else if (!pq.isEmpty() && pq.peek() > courses[i][0]) {
                 totalTime += courses[i][0] - pq.poll();
                 pq.offer(courses[i][0]);
             }
         }
+        // 큐에 남은 갯수가 최대 갯수가 된다.
         return pq.size();
     }
 }
