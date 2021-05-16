@@ -1,4 +1,4 @@
-package challenge.may_2021.week2.maximum_points_you_can_optain_from_cards;
+package challenge.may_2021.week2.maximum_points_you_can_obtain_from_cards;
 
 class Solution {
     public int maxScore(int[] cardPoints, int k) {
