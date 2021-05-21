@@ -2,6 +2,7 @@ package practice.kakaoblind.mukbang_live;
 
 import java.util.*;
 
+// 2019 KAKAO BLIND RECRUITMENT > 무지의 먹방 라이브 (42891)
 class Solution {
     public int solution(int[] food_times, long k) {
         PriorityQueue<Food> queue = new PriorityQueue<>();
