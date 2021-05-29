@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Solution {
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        s.solveNQueens(4);
-    }
     private List<List<String>> result = new ArrayList<>();
     private int[] coordinate = new int[] {-1, 0, 1};
 
@@ -46,7 +42,6 @@ class Solution {
             }
             solved.add(row);
         }
-        solved.stream().forEach(System.out::println);
         result.add(solved);
     }
 
