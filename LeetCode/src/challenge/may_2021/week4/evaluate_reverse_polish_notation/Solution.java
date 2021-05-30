@@ -34,7 +34,7 @@ class Solution {
                         result = first - second;
                         break;
                 }
-                
+
                 stack.push(result);
             } else {
                 stack.push(Integer.parseInt(token));
