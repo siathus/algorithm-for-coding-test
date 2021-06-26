@@ -2,53 +2,34 @@ package Z_1074;
 
 import java.util.Scanner;
 
+// Z (1074)
 public class Main {
 
     private static int count = 0;
-    private static int r;
-    private static int c;
+    private static int r, c;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        int n = 1;
-        int tmp = sc.nextInt();
+        int n = sc.nextInt();
         r = sc.nextInt();
         c = sc.nextInt();
 
-        for (int i = 0; i < tmp; i++) {
-            n = 2 * n;
-        }
-        recur(n, 0, 0);
+        divide((int)Math.pow(2, n), 0, 0);
     }
 
-    private static void recur(int n, int y, int x) {
-        if (n == 2) {
-            if (y == r && x == c) {
-                System.out.println(count);
-                return;
-            }
-            count++;
-            if (r == y && c == x + 1) {
-                System.out.println(count);
-                return;
-            }
-            count++;
-            if (r == y + 1 && c == x) {
-                System.out.println(count);
-                return;
-            }
-            count++;
-            if (r == y + 1 && c == x + 1) {
-                System.out.println(count);
-                return;
-            }
-            count++;
-            return;
+    private static void divide(int n, int y, int x) {
+        if (y == r && x == c) {
+            System.out.print(count);
+            System.exit(0);
         }
-        recur(n / 2, y, x);
-        recur(n / 2, y, x + n / 2);
-        recur(n / 2, y + n / 2, x);
-        recur(n / 2, y + n / 2, x + n / 2);
+        if (r < y + n && r >= y && c < x + n && c >= x) {
+            n = n / 2;
+            divide(n, y, x);
+            divide(n, y, x + n);
+            divide(n, y + n, x);
+            divide(n, y + n, x + n);
+        } else {
+            count += (n * n);
+        }
     }
 }
