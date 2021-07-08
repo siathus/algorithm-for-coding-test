@@ -39,15 +39,6 @@ public class Main {
         while (!queue.isEmpty()) {
             days++;
             List<Coordinate> next = new ArrayList<>();
-
-//            System.out.println("days = " + days);
-//            for (int i = 0; i < n; i++) {
-//                for (int j = 0; j < m; j++) {
-//                    System.out.print(box[i][j] + " ");
-//                }
-//                System.out.println();
-//            }
-
             while (!queue.isEmpty()) {
                 Coordinate coordinate = queue.poll();
                 int y = coordinate.getY();
